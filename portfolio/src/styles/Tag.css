@@ -1,0 +1,82 @@
+.tag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    width: 400px;
+    max-width: 100%;
+}
+
+.crew-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 2px;
+    margin: 15px;
+
+    > h2, > h3 {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        margin: 5px;
+    }
+}
+
+.crew {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px 8px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    height: 20px;
+    font-size: 12px;
+    
+    > a {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.crew-title {
+    margin: 5px 0 2px 0;
+}
+
+.tooltip {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    width: auto;
+    max-width: 250px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.2s ease-in-out;
+    z-index: 1001;
+}
+
+.crew:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

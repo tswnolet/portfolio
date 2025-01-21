@@ -1,0 +1,313 @@
+/* MOVIE DETAILS WRAPPER */
+.movie-details {
+    width: 100%;
+}
+
+/* MOVIE HERO SECTION */
+.movie-hero {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Aligns content at the bottom */
+}
+
+/* MOVIE HERO OVERLAY */
+.movie-hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes content to the bottom */
+    align-items: center;
+    text-align: left;
+    color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    z-index: 2; /* Ensures it's above the gradient */
+}
+
+/* SUBTLE GRADIENT TRANSITION */
+.gradient-overlay {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #121212 100%);
+    position: absolute;
+    bottom: 0;
+    z-index: 0; /* Make sure it's behind everything */
+}
+
+/* MOVIE TITLE & POSTER */
+.movie-title-container {
+    display: flex;
+    align-items: flex-end; /* Ensures text and poster align properly */
+    justify-content: space-between; /* Moves content left */
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+/* TITLE INFO */
+.movie-title-info {
+    text-align: left;
+    max-width: 60%;
+}
+
+.movie-title-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.director-name {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.movie-meta {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.movie-meta span {
+    margin-right: 10px;
+}
+
+/* MOVIE POSTER */
+.movie-page-poster {
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* WHERE TO WATCH - SIDEBAR */
+.watch-sidebar {
+    background: #222; /* Solid dark background */
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    width: 260px;
+    position: absolute;
+    top: 420px; /* Positioned below the banner */
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* WATCH PROVIDERS TITLE */
+.watch-sidebar h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* WATCH PROVIDERS GRID */
+.watch-providers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PROVIDER LOGOS */
+.watch-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.watch-logo:hover {
+    transform: scale(1.1);
+}
+
+/* THEATER TICKET LINK */
+.fandango-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background: #ff6600; /* Fandango Orange */
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.fandango-link:hover {
+    background: #ff8533;
+}
+
+.fandango-logo {
+    width: 24px;
+    height: auto;
+}
+
+/* MOVIE CONTENT */
+.movie-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* MOVIE OVERVIEW */
+.movie-overview {
+    max-width: 900px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* MINI NAVIGATION TABS */
+.movie-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.movie-nav button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: gray;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.movie-nav button.active {
+    color: white;
+    border-bottom: 2px solid #ffcc00;
+}
+
+/* CAST, CREW & PRODUCTION SECTIONS */
+.cast-section,
+.crew-section,
+.production-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* PRODUCTION COMPANIES (TEXT INSTEAD OF LOGOS) */
+.production-company {
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.production-company:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 769px) {
+    .movie-content {
+        width: 80%;
+    }
+
+    .cast-section {
+        width: 80%;
+    }
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1024px) {
+    .movie-title-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .movie-page-poster {
+        width: 180px;
+    }
+
+    .watch-sidebar {
+        position: static;
+        width: auto;
+        text-align: center;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-hero {
+        height: 350px;
+    }
+
+    .movie-title-container {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .movie-page-poster {
+        width: 140px;
+    }
+
+    .movie-title-info {
+        max-width: 65%;
+    }
+
+    .movie-title-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .director-name {
+        font-size: 1rem;
+    }
+
+    .movie-meta {
+        font-size: 1rem;
+    }
+
+    .movie-nav {
+        gap: 10px;
+    }
+
+    .movie-nav button {
+        font-size: 16px;
+    }
+
+    .production-company {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .watch-logo {
+        width: 40px;
+    }
+
+    .watch-sidebar {
+        width: 100%;
+        padding: 15px;
+        border-radius: 0;
+        position: static; /* Removes fixed position on mobile */
+    }
+}

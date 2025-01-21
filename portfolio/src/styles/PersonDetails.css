@@ -1,0 +1,46 @@
+.person-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.person-image {
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.movie-card {
+    width: 150px;
+    text-align: center;
+}
+
+.movie-poster {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 📱 Responsive Person Details */
+@media (max-width: 768px) {
+    .person-details {
+        padding: 15px;
+    }
+
+    .person-image {
+        width: 150px;
+    }
+
+    .movie-grid {
+        flex-direction: column;
+    }
+}

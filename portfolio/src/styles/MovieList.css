@@ -1,0 +1,44 @@
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.movie-card {
+    text-decoration: none;
+    width: 150px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-poster {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.film-lists {
+    margin: 20px 0;
+}
+
+/* 📱 Responsive Movie Grid */
+@media (max-width: 768px) {
+    .movie-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-card {
+        width: 100%;
+        max-width: 250px;
+    }
+}
