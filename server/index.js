@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017";
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://tnolet:Scorpius1!@movies.n7xwrso.mongodb.net/?retryWrites=true&w=majority&appName=movies";
 const client = new MongoClient(MONGO_URI);
 
 const database = client.db("MovieDB");
@@ -60,6 +60,7 @@ app.get("/api/movies/:id", async (req, res) => {
 // 🏁 **Start Express Server**
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
+// Error Handling
 process.on("uncaughtException", (err) => {
     console.error("❌ Uncaught Exception:", err);
 });

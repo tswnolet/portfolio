@@ -1,9 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://tylernolet.com/";
+const API_BASE_URL = "http://3.144.230.50:3000";
     const TMDB_API_BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -16,7 +13,7 @@ export const fetchMoviesForSearch = async (query) => {
     if (!query) return [];
 
     try {
-        const response = await axios.get(`${API_BASE_URL}/search?q=${query}`, {
+        const response = await axios.get(`${API_BASE_URL}/api/movies/search?q=${query}`, {
             headers: { "Cache-Control": "no-cache" },
         });
 

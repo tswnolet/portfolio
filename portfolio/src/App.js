@@ -40,6 +40,22 @@ function App() {
         setOtherResults(filteredMovies);
     }, [query, movies]);
 
+    useEffect(() => {
+        if (!query.trim()) {
+            console.log("❌ No query provided, resetting results.");
+            setOtherResults([]);
+            return;
+        }
+    
+        const fetchSearchResults = async () => {
+            const results = await fetchMoviesForSearch(query);
+            console.log("🔍 Search Results:", results);
+            setOtherResults(results);
+        };
+    
+        fetchSearchResults();
+    }, [query]);    
+
     return (
         <Router>
             <Nav query={query} setQuery={setQuery} otherResults={otherResults} />
