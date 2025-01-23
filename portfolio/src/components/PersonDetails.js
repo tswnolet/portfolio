@@ -23,7 +23,7 @@ const PersonDetails = () => {
                 setPerson(response.data);
                 setLoading(false);
             } catch (error) {
-                console.error("❌ Error fetching person details:", error);
+                console.error("Error fetching person details:", error);
                 setLoading(false);
             }
         };

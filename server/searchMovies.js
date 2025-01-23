@@ -17,7 +17,7 @@ async function searchMovieLocally(query, limit = 10) {
 
     try {
         await client.connect();
-        console.log("✅ Connected to MongoDB");
+        console.log("Connected to MongoDB");
 
         const db = client.db(DATABASE_NAME);
         const collection = db.collection(COLLECTION_NAME);
@@ -55,7 +55,7 @@ async function searchMovieLocally(query, limit = 10) {
 
         return processedResults;
     } catch (error) {
-        console.error("❌ Error searching movies from MongoDB:", error);
+        console.error("Error searching movies from MongoDB:", error);
         return [];
     } finally {
         await client.close();
@@ -66,5 +66,5 @@ async function searchMovieLocally(query, limit = 10) {
 (async () => {
     const searchQuery = "Harry Potter"; // Change this for testing
     const results = await searchMovieLocally(searchQuery, 10);
-    console.log("🎬 Search Results:", results);
+    console.log("Search Results:", results);
 })();

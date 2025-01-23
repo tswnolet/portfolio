@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://3.144.230.50:3000";
-    const TMDB_API_BASE_URL = "https://api.themoviedb.org/3";
+const API_BASE_URL = "https://api.silverscreened.com";
+const TMDB_API_BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const TMDB_HEADERS = {
@@ -17,11 +17,9 @@ export const fetchMoviesForSearch = async (query) => {
             headers: { "Cache-Control": "no-cache" },
         });
 
-        console.log("🔍 API Response:", response.data);
-
         return Array.isArray(response.data) ? response.data : []; // 🔥 Ensure it's always an array
     } catch (error) {
-        console.error("❌ Error searching movies:", error);
+        console.error("Error searching movies:", error);
         return [];
     }
 };
@@ -32,7 +30,7 @@ export const fetchTrendingMovies = async () => {
         const response = await axios.get(`${TMDB_API_BASE_URL}/trending/movie/week`, { headers: TMDB_HEADERS });
         return response.data.results;
     } catch (error) {
-        console.error("❌ Error fetching trending movies from TMDB:", error);
+        console.error("Error fetching trending movies from TMDB:", error);
         return [];
     }
 };
@@ -43,7 +41,7 @@ export const fetchRecentMovies = async () => {
         const response = await axios.get(`${TMDB_API_BASE_URL}/movie/now_playing`, { headers: TMDB_HEADERS });
         return response.data.results || [];
     } catch (error) {
-        console.error("❌ Error fetching recent movies from TMDB:", error);
+        console.error("Error fetching recent movies from TMDB:", error);
         return [];
     }
 };
@@ -57,7 +55,7 @@ export const fetchPopularMovies = async () => {
 
         return response.data.results || [];
     } catch (error) {
-        console.error("❌ Error fetching popular movies from TMDB:", error);
+        console.error("Error fetching popular movies from TMDB:", error);
         return [];
     }
 };
@@ -65,7 +63,7 @@ export const fetchPopularMovies = async () => {
 //Fetch movie details from TMDB API
 export const fetchMovieDetails = async (movieId) => {
     if (!movieId) {
-        console.error("❌ fetchMovieDetails: Invalid movie ID", movieId);
+        console.error("fetchMovieDetails: Invalid movie ID", movieId);
         return null;
     }
 
@@ -76,7 +74,7 @@ export const fetchMovieDetails = async (movieId) => {
 
         return response.data;
     } catch (error) {
-        console.error(`❌ Error fetching movie details (ID: ${movieId}) from TMDB:`, error);
+        console.error(`Error fetching movie details (ID: ${movieId}) from TMDB:`, error);
         return null;
     }
 };
@@ -95,7 +93,7 @@ export const fetchMovieDetails = async (movieId) => {
 
 export const fetchFullMovieDetails = async (movieId) => {
     if (!movieId) {
-        console.error("❌ fetchFullMovieDetails: Invalid movie ID", movieId);
+        console.error("fetchFullMovieDetails: Invalid movie ID", movieId);
         return null;
     }
 
@@ -109,7 +107,7 @@ export const fetchFullMovieDetails = async (movieId) => {
 
         return response.data;
     } catch (error) {
-        console.error(`❌ Error fetching full details for movie (ID: ${movieId}) from TMDB:`, error);
+        console.error(`Error fetching full details for movie (ID: ${movieId}) from TMDB:`, error);
         return null;
     }
 };
@@ -130,12 +128,12 @@ export const fetchPersonDetails = async (personId) => {
             known_for: response.data.movie_credits.cast.slice(0, 10), // Show top 10 movies
         };
     } catch (error) {
-        console.error(`❌ Error fetching details for person ID ${personId}:`, error);
+        console.error(`Error fetching details for person ID ${personId}:`, error);
         return null;
     }
 };
 
-// 🎬 Fetch movies releasing soon (Next 2 Months)
+//Fetch movies releasing soon (Next 2 Months)
 export const fetchUpcomingMovies = async () => {
     try {
         const response = await axios.get(`${TMDB_API_BASE_URL}/movie/upcoming`, {
@@ -156,7 +154,7 @@ export const fetchUpcomingMovies = async () => {
             return releaseDate >= currentDate && releaseDate <= twoMonthsLater;
         });
     } catch (error) {
-        console.error("❌ Error fetching upcoming movies:", error);
+        console.error("Error fetching upcoming movies:", error);
         return [];
     }
 };
@@ -170,7 +168,7 @@ export const fetchNowPlayingMovies = async () => {
         });
         return response.data.results;
     } catch (error) {
-        console.error("❌ Error fetching now playing movies:", error);
+        console.error("Error fetching now playing movies:", error);
         return [];
     }
 };
@@ -191,7 +189,7 @@ export const fetchRecentlyReleasedMovies = async () => {
 
         return response.data.results;
     } catch (error) {
-        console.error("❌ Error fetching recently released movies:", error);
+        console.error("Error fetching recently released movies:", error);
         return [];
     }
 };

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.film-list-container {
+  padding: 25px 50px;
+
+  .section {
+    > h2 {
+      margin-bottom: 5px;
+    }
+  }
+}

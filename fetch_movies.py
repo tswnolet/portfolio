@@ -40,7 +40,7 @@ async def fetch_movie_details(session, movie_id):
                 print(f"⚠️ Skipping movie ID {movie_id}: {response.status}")
                 return None
     except Exception as e:
-        print(f"❌ Error fetching movie {movie_id}: {e}")
+        print(f"Error fetching movie {movie_id}: {e}")
         return None
 
 async def insert_movies_into_mongo(movies):
@@ -55,7 +55,7 @@ async def insert_movies_into_mongo(movies):
 
     if operations:
         result = await collection.bulk_write(operations)
-        print(f"✅ Inserted {result.upserted_count} new movies, updated {result.modified_count} existing movies.")
+        print(f"Inserted {result.upserted_count} new movies, updated {result.modified_count} existing movies.")
 
 async def process_movie_batch(session, movie_ids):
     """Fetch details for a batch of movies asynchronously."""
@@ -80,4 +80,4 @@ async def fetch_and_store_all_movies(start_id):
             movie_id += CONCURRENT_REQUESTS  # Move to the next batch
 
 if __name__ == "__main__":
-    asyncio.run(fetch_and_store_all_movies(start_id=392581))
+    asyncio.run(fetch_and_store_all_movies(start_id=749960))

@@ -1,0 +1,42 @@
+.loading-card {
+    width: 150px;
+    height: 225px;
+    border-radius: 8px;
+    background: linear-gradient(100deg, #c0c0c0 0%, #d4d4d4 50%, #c0c0c0 100%);
+    background-size: 200% 100%;
+    animation: loadingAnimation 1.5s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ✨ Silver Sheen Animation */
+@keyframes loadingAnimation {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* 🌀 Unique Loading Icon (Spinning) */
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    .loading-card {
+        width: 100%;
+        max-width: 250px;
+        height: 375px;
+    }
+}

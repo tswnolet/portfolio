@@ -20,15 +20,15 @@ const collection = database.collection("movies");
 async function connectMongo() {
     try {
         await client.connect();
-        console.log("✅ Connected to MongoDB");
+        console.log("Connected to MongoDB");
     } catch (error) {
-        console.error("❌ MongoDB Connection Failed. Retrying in 5 seconds...");
+        console.error("MongoDB Connection Failed. Retrying in 5 seconds...");
         setTimeout(connectMongo, 5000);
     }
 }
 connectMongo();
 
-// 🎬 **Search movies in MongoDB**
+//**Search movies in MongoDB**
 app.get("/api/movies/search", async (req, res) => {
     const query = req.query.q;
     if (!query) return res.status(400).json({ error: "Missing search query" });
@@ -40,7 +40,7 @@ app.get("/api/movies/search", async (req, res) => {
             .toArray();
         res.json(movies);
     } catch (error) {
-        console.error("❌ Error searching movies:", error);
+        console.error("Error searching movies:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
@@ -52,7 +52,7 @@ app.get("/api/movies/:id", async (req, res) => {
         if (!movie) return res.status(404).json({ error: "Movie not found" });
         res.json(movie);
     } catch (error) {
-        console.error("❌ Error fetching movie details:", error);
+        console.error("Error fetching movie details:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
@@ -62,9 +62,9 @@ app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
 // Error Handling
 process.on("uncaughtException", (err) => {
-    console.error("❌ Uncaught Exception:", err);
+    console.error("Uncaught Exception:", err);
 });
 
 process.on("unhandledRejection", (err) => {
-    console.error("❌ Unhandled Promise Rejection:", err);
+    console.error("Unhandled Promise Rejection:", err);
 });

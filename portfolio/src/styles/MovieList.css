@@ -1,17 +1,26 @@
-.movie-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
+/* MOVIE SECTION */
+.section {
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
 }
 
-h1, h2, h3 {
-    text-align: center;
+/* 📜 HORIZONTAL SCROLLABLE MOVIE GRID */
+.movie-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+/* Hide scrollbar (optional) */
+.movie-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .movie-card {
-    text-decoration: none;
+    flex: 0 0 auto; /* Prevents shrinking */
     width: 150px;
     transition: transform 0.2s ease-in-out;
 }
@@ -26,19 +35,22 @@ h1, h2, h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.film-lists {
-    margin: 20px 0;
+/* RESPONSIVE SCALING */
+@media (max-width: 1024px) {
+    .movie-card {
+        width: 120px;
+    }
 }
 
-/* 📱 Responsive Movie Grid */
 @media (max-width: 768px) {
-    .movie-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .movie-card {
-        width: 100%;
-        max-width: 250px;
+        width: 100px; /* Slightly smaller for mobile */
+    }
+}
+
+/* 📱 MOBILE SCROLL SETTINGS */
+@media (max-width: 600px) {
+    .movie-grid {
+        padding: 0 10px; /* Adds padding for mobile */
     }
 }

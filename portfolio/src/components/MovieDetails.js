@@ -5,8 +5,6 @@ import crewCategories from "../data/crewCategories.json";
 import CrewSection from "./CrewSection";
 import Tag from "./Tag";
 import { Link } from "react-router-dom";
-import "../styles/MovieDetails.css";
-import fandangoLogo from "../assets/fandango logo.svg"; // Ensure this is correctly linked
 
 const MovieDetails = () => {
     const { movieId } = useParams();
@@ -37,10 +35,9 @@ const MovieDetails = () => {
                 );
     
                 const data = await response.json();
-                setWatchProviders(data.results?.US || {}); // Only store U.S. providers
-                console.log("Watch Providers:", data);
+                setWatchProviders(data.results?.US || {});
             } catch (error) {
-                console.error("❌ Error fetching watch providers:", error);
+                console.error("Error fetching watch providers:", error);
             }
         };
     
@@ -82,8 +79,8 @@ const MovieDetails = () => {
                         <div className="movie-title-info">
                             <h1>{movie.title} ({movie.release_date?.substring(0, 4)})</h1>
                             <div className="movie-meta">
-                                <span>🎬 Directed by {directors || "Unknown"}</span>
-                                <span>⏳ {movie.runtime} min</span>
+                                <span>Directed by {directors || "Unknown"}</span>
+                                <span>{movie.runtime} min</span>
                             </div>
                         </div>
                         
@@ -145,7 +142,7 @@ const MovieDetails = () => {
             </div>
 
             {/* Content Sections Based on Active Tab */}
-            <div className="movie-sections">
+            <div className="sections">
                 {activeTab === "cast" && (
                     <div className="cast-section">
                         {cast.slice(0, 15).map((actor) => (

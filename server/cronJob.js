@@ -13,4 +13,4 @@ cron.schedule('1 0 * * *', () => {
     });
 });
 
-console.log("✅ Movie database update job scheduled.");
+console.log("Movie database update job scheduled.");
